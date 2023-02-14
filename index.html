@@ -1,91 +1,76 @@
 <!doctype html>
 <html>
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    </head>
-    
-    <style>
-        .ar {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            left: 10px;
-            top: 750px;
 
-            background: #FFFFFF;
-            border-radius: 10px;
-        }
-        
-        .arImg {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            left: 15px;
-            top: 755px;
-        }
-        
-  </style>
-    
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+</head>
 
-    <body style="margin: 0; overflow: hidden;">
-        
-        <div>
-            
-            <a href="https://www.google.com/" class="button">
-                
-                <img src="https://i.postimg.cc/8c58LzMj/augmented-reality.png">
-                
-            </a>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
 
-        </div
-        
-        <div>
-            
-            <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
-            renderer="logarithmicDepthBuffer: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
-            gesture-detector
-        >
-            <a-assets>
-                <a-asset-item
-                    id="animated-asset"
-                    src="https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/asset.gltf"
-                ></a-asset-item>
-            </a-assets>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 
-            <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-entity
-                    id="bowser-model"
-                    scale="1 1 1"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-            </a-marker>
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+  }
 
-            <a-entity camera></a-entity>
-        </a-scene>
-        
-        
-        </div>
-        
-    </body>
+  .button {
+    display: block;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: #fff;
+    border-radius: 20%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .button img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+
+    <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;" renderer="logarithmicDepthBuffer: true;" arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
+      <a-assets>
+        <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/asset.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-marker id="animated-marker" type="pattern" preset="custom" url="https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/marker.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+        <a-entity id="bowser-model" scale="1 1 1" animation-mixer="loop: repeat" gltf-model="#animated-asset" class="clickable" gesture-handler></a-entity>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+  </div>
+
+  <a href="https://www.google.com/" class="button">
+    <img src="https://i.postimg.cc/8c58LzMj/augmented-reality.png" >
+  </a>
+
+</body>
+
 </html>
