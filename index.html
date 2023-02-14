@@ -13,8 +13,6 @@
                 renderer="logarithmicDepthBuffer: true;"
                 arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
                 id="scene"
-                embedded
-                gesture-detector
         >
                 <a-assets>
                     <a-asset-item
@@ -29,18 +27,12 @@
                             type="pattern"
                             preset="custom"
                             url="assets/marker.patt"
-                            raycaster="objects: .clickable"
-                            emitevents="true"
-                            cursor="fuse: false; rayOrigin: mouse;"
-                            id="markerA"
                     >
                         <a-entity
                                 id="bowser-model"
                                 scale="1 1 1"
                                 animation-mixer="loop: repeat"
                                 gltf-model="#animated-asset"
-                                class="clickable"
-                                gesture-handler
                         ></a-entity>
                     </a-marker>
             
