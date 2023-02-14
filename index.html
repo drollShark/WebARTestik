@@ -10,6 +10,12 @@
     
     <style>
         
+        * {
+          box-sizing: border-box;
+          border-width: 0;
+          border-style: solid;
+        }
+   
         .buttons {
           position: absolute;
           bottom: 0;
@@ -20,6 +26,7 @@
           justify-content: center;
           align-items: center;
           z-index: 10;
+          padding: var(--dl-space-space-oneandhalfunits) var(--dl-space-space-twounits);
         }
 
         .say-hi-button {
@@ -54,7 +61,7 @@
             <a-assets>
                 <a-asset-item
                     id="animated-asset"
-                    src="assets/https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/asset.gltf"
+                    src="https://raw.githubusercontent.com/drollShark/WebARTestik/main/assets/asset.gltf"
                 ></a-asset-item>
             </a-assets>
 
